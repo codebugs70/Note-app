@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FONT AWESOME LINK -->
+    <script
+      src="https://kit.fontawesome.com/5f219ec053.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- LINK FILE CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>TESTING</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="box">
+        <span class="add-btn">
+          <i class="fa-solid fa-plus"></i>
+        </span>
+        <button>Add new note</button>
+      </div>
+      <!--  <div class="note">
+        <h1 class="note-title">This is a heading</h1>
+        <p class="note-desc">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+          deleniti cupiditate perspiciatis corporis modi? Nam necessitatibus,
+          deserunt voluptates error quibusdam minima non incidunt possimus iure
+          totam est consequuntur vel tempore.
+        </p>
+        <div class="note-bottom">
+          <p class="note-date">April, 11, 2023</p>
+          <div class="note-toggle-icon">
+            <i class="fa-solid fa-ellipsis"></i>
+            <div class="settings">
+              <span><i class="fa fa-edit icon-edit"></i>Edit</span>
+              <span><i class="fa fa-trash icon-delete"></i>Delete</span>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <span class="modal-close">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </span>
+        <div class="modal-main">
+          <div class="group">
+            <label for="title">title</label>
+            <input id="title" type="text" placeholder="Enter your title..." />
+          </div>
+          <div class="group">
+            <label for="description">description</label>
+            <textarea
+              id="description"
+              placeholder="Enter your description..."
+            ></textarea>
+          </div>
+          <button class="add-new-note">add new note</button>
+        </div>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
