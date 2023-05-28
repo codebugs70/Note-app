@@ -7,7 +7,7 @@ const description = document.querySelector("#description");
 const addNewBtn = document.querySelector(".add-new-note");
 const wrapper = document.querySelector(".wrapper");
 
-const notes = JSON.parse(localStorage.getItem("NOTES") || "[]");
+let notes = JSON.parse(localStorage.getItem("NOTES") || "[]");
 let isEdit = false,
   editId;
 
