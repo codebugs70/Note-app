@@ -1,0 +1,240 @@
+// sass ./sass/style.scss ./css/style.css --watch
+@import "variables";
+@import "reset";
+
+body {
+  background-color: $darkNight;
+  color: $colorLightGray;
+  padding: 20px;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  .box {
+    padding: 20px;
+    height: 360px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    align-items: center;
+    border-radius: 8px;
+    gap: 20px;
+    background-color: $dark27;
+    span {
+      width: 120px;
+      height: 120px;
+      display: flex;
+      font-size: 40px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100rem;
+      cursor: pointer;
+      border: 2px dashed $colorLightGray;
+      &:hover {
+        color: $colorOrange;
+        border: 2px dashed $colorOrange;
+      }
+    }
+    button {
+      font-weight: 500;
+      font-size: 22px;
+      text-transform: capitalize;
+    }
+  }
+  .note {
+    padding: 20px;
+    height: 360px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 8px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+
+    background-color: $dark27;
+    &-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: $colorOrange;
+    }
+    &-desc {
+      font-size: 15px;
+      height: 100%;
+      max-height: 220px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+    }
+    &-bottom {
+      border-top: 1px solid $colorOrange;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &-date {
+      font-weight: 500;
+      font-size: 14px;
+    }
+    &-toggle-icon {
+      width: 30px;
+      height: 30px;
+      background-color: $darkRedux;
+      display: flex;
+      position: relative;
+      justify-content: center;
+      cursor: pointer;
+      align-items: center;
+      border-radius: 100rem;
+      &:hover {
+        background-color: $colorOrange;
+      }
+      &.active .settings {
+        transform: scale(1);
+      }
+      .settings {
+        top: -2px;
+        left: -2px;
+        background-color: $darkSaga;
+        position: absolute;
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        z-index: 10;
+        transform: scale(0);
+        transform-origin: top left;
+        transition: transform 0.1s linear;
+        span {
+          cursor: pointer;
+          padding: 20px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          height: 40px;
+          font-weight: 500;
+        }
+        span:hover {
+          color: $colorOrange;
+          background: $darkRedux;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 769px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  padding: 0 20px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  &.show {
+    display: flex;
+  }
+}
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.modal-content {
+  background-color: $dark27;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  position: relative;
+  z-index: 10;
+  padding: 30px;
+  @media screen and (max-width: 480px) {
+    max-width: 360px;
+  }
+}
+.modal-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  border-radius: 100rem;
+  color: $colorLightGray;
+  background-color: $darkSaga;
+  padding: 5px;
+  transform: translate(50%, -50%);
+  * {
+    pointer-events: none;
+  }
+  &:hover {
+    background-color: $colorOrange;
+    color: white;
+  }
+}
+.modal-main {
+  overscroll-behavior-y: contain;
+  .group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+    label {
+      text-transform: capitalize;
+      font-size: 18px;
+      color: $colorOrange;
+      font-weight: 600;
+    }
+    input {
+      padding: 15px 20px;
+      background-color: $darkRedux;
+      border: 1px solid transparent;
+      outline: none;
+      transition: all 0.2s linear;
+      border-radius: 6px;
+      color: $colorLightGray;
+      &:focus {
+        background-color: $darkNight;
+        border: 1px solid $colorOrange;
+      }
+    }
+    textarea {
+      resize: none;
+      padding: 15px 20px;
+      background-color: $darkRedux;
+      border: 1px solid transparent;
+      outline: none;
+      min-height: 200px;
+      transition: all 0.2s linear;
+      border-radius: 6px;
+      color: $colorLightGray;
+      &:focus {
+        background-color: $darkNight;
+        border: 1px solid $colorOrange;
+      }
+    }
+  }
+  button {
+    width: 100%;
+    background-color: $darkRedux;
+    padding: 15px 0;
+    display: flex;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: capitalize;
+    border-radius: 8px;
+    justify-content: center;
+    color: white;
+    align-items: center;
+    font-size: 18px;
+    background-color: $colorOrange;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
